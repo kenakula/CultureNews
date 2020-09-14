@@ -1,15 +1,22 @@
 extends ../pug/layout.pug
 
 block meta
-  title Главная
-  meta(name='description', content='Новости из мира искусств')
+  title Новости культуры
+  meta(name='description', content='Новости из мира искусств и культуры')
 
 //- block append head
 //-   link(rel='stylesheet', href='css/some.css')
 
 block nav
+  +main-nav('-1')
 
 block content
+  .page__wrapper
+    main
+      block sections
+      block slider
+    aside
+      block articles
 
 
 //- block footer

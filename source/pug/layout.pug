@@ -38,12 +38,15 @@ html(class='page  no-js', lang='ru')
   body
     noscript У вас отключен JavaScript. Это пугает.
 
-    block header
-      block nav
-    
-    block content
+    .page__inner
+      .page__content
+        +page-header()
+          block nav
 
-    block footer
+        block content
+
+      .page__footer-wrapper
+        block footer
 
     block page-bottom
       script(src='js/bundle.js')

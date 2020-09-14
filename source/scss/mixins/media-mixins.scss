@@ -9,3 +9,15 @@
     background-image: url($url);
   }
 }
+
+@mixin max-tablet {
+  @media (min-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin max-desktop {
+  @media (min-width: $desktop) {
+    @content;
+  }
+}

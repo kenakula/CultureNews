@@ -23,45 +23,29 @@ $color-tw:                    #40a2f5;
 $color-gh:                    #24292e;
 
 // цвета проекта
-$color-orange:        #ff7931;
+$color-orange:                #ff7931;
 
 
 // Семантические цвета
 
 $text-color:                  $black;
-$text-color-muted:            $gray;
 
-$link-color:                  $color-main;
-$link-color--hover:           darken($color-main, 15%);
+$link-color:                  $black;
+$link-color--hover:           rgba($color: $text-color, $alpha: 0.7);
 
 $menu-link-color:             $gray-darker;
 
 $border-color:                $gray-lighten;
 
 $body-bg:                     $white;
-$promo-bg:                    $color-gh;
+$promo-bg:                    $color-fb;
 
 
 // Базовая типографика
 
-$font-size:                   14px;
-
-$font-size-h1:                40px;
-$font-size-h2:                32px;
-$font-size-h3:                24px;
-$font-size-h4:                18px;
-$font-size-h5:                14px;
-$font-size-h6:                14px;
-
-$font-size-sm:                0.75em; // 12px от 16px
+$font-size:                   1rem;
 
 $line-height:                 1.5;
-
-$typo-margin-vertical:        1em;
-
-$font-family:                 -apple-system, BlinkMacSystemFont, 'Roboto', 'Ubuntu', 'Droid Sans', 'Helvetica Neue', 'Arial', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-$font-family--monospace:     SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
-// Georgia, Times New Roman, Times, serif
 
 // шрифты проекта
 
@@ -76,42 +60,26 @@ $font-main-bold:              'Raleway Bold', 'Roboto', 'Arial', sans-serif;
 
 // Ширины
 
-$screen-xs:                   0;
-$screen-sm:                   480px;
-$screen-md:                   768px;
-$screen-lg:                   992px;
-$screen-xl:                   1200px;
-$screen-xxl:                  1800px;
+$screen-mobile:               320px;
+$screen-tablet:               768px;
+$screen-desktop:              1440px;
 
-$container-sm:                100%;
-$container-md:                100%;
-$container-lg:                $screen-lg - 30;
-$container-xl:                $screen-xl - 30;
-$container-xxl:               $screen-xxl - 30;
-
-
-
-// Модульная сетка
-
-$grid-columns:                12;
-$grid-gutter-width:           30px;
-
+$menu-desktop-width:          $screen-desktop;
 
 
 // Разное
 
-$field-padding-vertical:      5px;
-$field-padding-horizontal:    12px;
-
 $border-radius:               3px;
 $opacity:                     0.7;
 $transition-time:             0.3s;
+$transition-animation:             ease-in;
 $shadow:                      0 4px 2px -2px rgba(0, 0, 0, 0.3);
 
-$menu-desktop-width:          $screen-lg;
 $toggler-part-height:         3px;
-$toggler-part-bg-color:       $white;
+$toggler-part-color:          $white;
+$toggler-part-color-close:    $gray-lighter;
 
+$z-index-nav:                 10;
 $z-index-modal:               100;
 
 $retina:                      1.5dppx;

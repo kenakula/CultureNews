@@ -1,0 +1,78 @@
+// В этом файле должны быть стили для БЭМ-блока burger, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.burger {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  width: 50px;
+  border: none;
+  padding: 0 13px;
+  line-height: 50px;
+  background: transparent;
+  background-color: $color-orange;
+  user-select: none;
+  transition: all $transition-time $transition-animation;
+  cursor: pointer;
+  outline: none;
+
+  > span { // stylelint-disable-line  selector-combinator-blacklist
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: $toggler-part-height;
+    vertical-align: middle;
+    font-size: 0;
+    color: transparent;
+    background: $toggler-part-color;
+    transition: background $transition-time $transition-time;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: $toggler-part-height;
+      background: $toggler-part-color;
+      transform-origin: 50% 50%;
+      transition: top $transition-time $transition-time, transform $transition-time;
+    }
+
+    &:before {
+      top: -7px;
+    }
+
+    &:after {
+      top: 7px;
+    }
+  }
+
+  &--close {
+    align-self: flex-end;
+    margin-bottom: 20px;
+    padding: 0;
+    background-color: $white;
+
+    > span { // stylelint-disable-line  selector-combinator-blacklist
+      transition: background $transition-time 0s;
+      background: transparent;
+
+      &:before,
+      &:after {
+        top: 0;
+        background: $toggler-part-color-close;
+        transition: top $transition-time, transform $transition-time $transition-time;
+      }
+
+      &:before {
+        transform: rotate3d(0, 0, 1, 45deg);
+      }
+
+      &:after {
+        transform: rotate3d(0, 0, 1, -45deg);
+      }
+    }
+  }
+}

@@ -7,6 +7,8 @@
 
 /* global require */
 
+require('../blocks/burger/burger.js');
+require('../blocks/main-nav/main-nav.js');
 require('./script.js');
 
 /*!*

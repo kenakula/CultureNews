@@ -4,7 +4,6 @@ let config = {
   'addStyleBefore': [
     'source/scss/variables.scss',
     'source/scss/mixins.scss',
-    'source/scss/global.scss',
     // 'somePackage/dist/somePackage.css', // для 'node_modules/somePackage/dist/somePackage.css',
   ],
   'addJsBefore': [
