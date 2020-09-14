@@ -56,6 +56,8 @@
     "webpack-stream": "^6.1.0"
   },
   "dependencies": {
-    "object-fit-images": "^3.2.4"
+    "jquery": "^3.5.1",
+    "object-fit-images": "^3.2.4",
+    "slick-carousel": "^1.8.1"
   }
 }

@@ -8,6 +8,7 @@
 /* global require */
 
 require('../blocks/burger/burger.js');
+require('../blocks/hero/hero.js');
 require('../blocks/main-nav/main-nav.js');
 require('./script.js');
 

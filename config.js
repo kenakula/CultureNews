@@ -1,9 +1,15 @@
 /* global module */
 
 let config = {
+  'alwaysAddBlocks': [
+    // 'sprite-svg',
+    // 'sprite-png',
+    // 'object-fit-polyfill',
+  ],
   'addStyleBefore': [
     'source/scss/variables.scss',
     'source/scss/mixins.scss',
+    'source/scss/slick-slider.scss',
     // 'somePackage/dist/somePackage.css', // для 'node_modules/somePackage/dist/somePackage.css',
   ],
   'addJsBefore': [

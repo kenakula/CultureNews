@@ -1,0 +1,191 @@
+// В этом файле должны быть стили для БЭМ-блока hero, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.hero {
+
+  $block-name:                &; // #{$block-name}__element
+  margin-bottom: 40px;
+}
+
+.hero__inner {
+  position: relative;
+}
+
+.hero__list {
+  @include list-reset;
+
+  position: relative;
+}
+
+.hero__controls {
+  @include min-desktop {
+    display: flex;
+  }
+
+  position: absolute;
+  bottom: 45%;
+  display: none;
+  justify-content: center;
+  width: 100%;
+  height: 42px;
+  color: $white;
+  z-index: 100;
+
+  & > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    width: 40%;
+    border-right: 1px solid $white;
+
+    &:last-child {
+      // justify-content: flex-start;
+      border-right: none;
+      border-left: 1px solid $white;
+    }
+  }
+}
+
+.hero__controls-title {
+  position: relative;
+  font-size: rem(13);
+
+  &::before {
+    @include pseudo;
+
+    right: -80px;
+    top: 9px;
+    width: 64px;
+    height: 1px;
+    background-color: $white;
+  }
+
+  &--right::before {
+    right: 88px;
+  }
+}
+
+.hero__button {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  background-image: url("../img/hero-arrow-left.svg");
+  background-repeat: no-repeat;
+  background-position: center left 9px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  &--right {
+    transform: rotate(180deg);
+  }
+
+  &:hover {
+    background-color: rgba($color: $white, $alpha: 0.1);
+  }
+}
+
+.hero__item {
+  @include retina("../img/hero-index-mobile@2x.jpg");
+  @include retina-plus("../img/hero-index-mobile@3x.jpg");
+  @include min-desktop {
+    @include retina("../img/hero-index-desktop@2x.jpg");
+    @include retina-plus("../img/hero-index-desktop@3x.jpg");
+
+    justify-content: space-between;
+    min-height: 464px;
+    font-size: rem(72);
+    background-image: url("../img/hero-index-desktop.jpg");
+  }
+
+  position: relative;
+  display: flex !important; // для переназначения инлайн-стилей плагина слайдера
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 20px 55px;
+  min-height: 405px;
+  color: $white;
+  background-color: $hero-bg;
+  background-image: url("../img/hero-index-mobile.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  span {
+    position: absolute;
+    top: 25px;
+    left: calc(50% - 50px);
+    display: block;
+    width: 100px;
+    font-size: rem(16);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background-color: $color-orange;
+  }
+
+  h2 {
+    @include min-desktop {
+      font-size: rem(72);
+    }
+
+    margin: 0;
+    margin-bottom: 12px;
+    font-family: $font-main-thin-light;
+    font-size: rem(30);
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  p {
+    @include min-desktop {
+      font-size: rem(14);
+      width: 31.66%;
+    }
+
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+// пользовательские стили контролов слайдера
+.hero__dots {
+  @include list-reset;
+
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  z-index: 1001;
+
+  li {
+    margin-right: 15px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  button {
+    @include button-reset;
+
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    font-size: 0;
+    background-color: rgba($color: $white, $alpha: 0.4);
+    cursor: pointer;
+    outline: none;
+  }
+
+  .slick-active button {
+    background-color: $white;
+  }
+}

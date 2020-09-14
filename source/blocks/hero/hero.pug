@@ -1,0 +1,42 @@
+//- Все примеси в этом файле должны начинаться c имени блока (hero)
+
+mixin hero(text, mods)
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +hero('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' hero--' + modsList[i].trim();
+      }
+    }
+
+  include hero.data.pug
+
+  section.hero
+    .hero__inner
+      ul.hero__list
+        each slide in heroSlides
+          +sliderItem(slide)
+      .hero__controls
+        div
+          span.hero__controls-title.hero__controls-title--left(role="presentation") Предыдущая
+          button.hero__button.hero__button--left(aria-label="Предыдущий слайд")
+        div
+          button.hero__button.hero__button--right(aria-label="Следующий слайд")
+          span.hero__controls-title.hero__controls-title--right(role="presentation") Следующая
+
+
+mixin sliderItem(slide)
+  li.hero__item
+    if slide.isNew == "true"
+      span Новое
+    h2= slide.title
+    p= slide.text

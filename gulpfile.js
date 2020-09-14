@@ -33,7 +33,7 @@ const imagemin = require('gulp-imagemin');
 // глобальные настройки сборки
 const nth = {};
 nth.config = require('./config.js');
-// nth.blocksFromHtml = Object.create(nth.config.alwaysAddBlocks);
+nth.blocksFromHtml = Object.create(nth.config.alwaysAddBlocks);
 nth.scssImportsList = [];
 const dir = nth.config.dir;
 
@@ -48,25 +48,18 @@ let prettyOption = {
   content_unformatted: [],
 };
 
-// // Настройки оптимизации изображений
-// let optimizingPlugins = [
-//   imagemin.gifsicle({ interlaced: true }),
-//   imagemin.mozjpeg({ quality: 75, progressive: true }),
-//   imagemin.optipng({ optimizationLevel: 5 }),
-//   imagemin.svgo({
-//     plugins: [
-//       { removeViewBox: true },
-//       { cleanupIDs: false }
-//     ]
-//   })
-// ];
-
-// // оптимизация изображений
-// function optimizeImg(src) {
-//   return src(src)
-//     .pipe(imagemin(optimizingPlugins))
-//     .pipe(dest(src))
-// };
+// Настройки оптимизации изображений
+let optimizingPlugins = [
+  imagemin.gifsicle({ interlaced: true }),
+  imagemin.mozjpeg({ quality: 75, progressive: true }),
+  imagemin.optipng({ optimizationLevel: 5 }),
+  imagemin.svgo({
+    plugins: [
+      { removeViewBox: true },
+      { cleanupIDs: false }
+    ]
+  })
+];
 
 // Список и настройки плагинов postCSS
 let postCssPlugins = [
@@ -89,26 +82,22 @@ function copyAssets(cb) {
 }
 exports.copyAssets = copyAssets;
 
-// копирование изображений из блоков
-function copyImg(cb) {
-  let copiedImages = [];
-  nth.blocksFromHtml.forEach(function (block) {
-    let src = `${dir.blocks}${block}/img`;
-    if (fileExist(src)) {
-      copiedImages.push(src);
-    }
-  });
-  if (copiedImages.length) {
-    (async () => {
-      await cpy(copiedImages, `${dir.build}img`);
-      cb();
-    })();
-  }
-  else {
-    cb();
-  }
+function copyImg() {
+  return src(`${dir.blocks}**/img/*.{jpg,png,gif,webp,svg}`, { since: lastRun(copyImg) })
+    .pipe(rename({ dirname: '' }))
+    .pipe(debug({ title: 'copied' }))
+    .pipe(dest(`${dir.build}img`));
 }
 exports.copyImg = copyImg;
+
+// оптимизация изображений
+function optimizeImg() {
+  return src(`${dir.build}img/*.{jpg,png,gif,webp,svg}`)
+    .pipe(imagemin(optimizingPlugins))
+    .pipe(debug({ title: 'optimized' }))
+    .pipe(dest(`${dir.build}img`))
+};
+exports.optimizeImg = optimizeImg;
 
 // генерирует svg спрайт
 function generateSvgSprite(cb) {
@@ -382,7 +371,7 @@ exports.build = series(
   parallel(clearBuildDir, writePugMixinsFile),
   parallel(compilePug, copyAssets, generateSvgSprite),
   parallel(copyImg, writeSassImportsFile, writeJsRequiresFile),
-  parallel(compileSass, buildJs),
+  parallel(compileSass, buildJs, optimizeImg),
 );
 
 exports.default = series(
