@@ -10,14 +10,14 @@
   }
 }
 
-@mixin max-tablet {
-  @media (min-width: $tablet) {
+@mixin min-tablet {
+  @media (min-width: $screen-tablet) {
     @content;
   }
 }
 
-@mixin max-desktop {
-  @media (min-width: $desktop) {
+@mixin min-desktop {
+  @media (min-width: $screen-desktop) {
     @content;
   }
 }

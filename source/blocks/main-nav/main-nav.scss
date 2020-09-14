@@ -46,6 +46,7 @@
     @media (min-width: $menu-desktop-width) {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
 
       &--lvl-2 {
         display: block;
@@ -53,6 +54,24 @@
 
       &--lvl-3 {
         display: block;
+      }
+
+      .main-nav__item {
+        margin-bottom: 0;
+        margin-right: 20px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        &::before {
+          display: none;
+        }
+      }
+
+      .main-nav__link {
+        font-size: rem(15);
+        color: $text-color;
       }
     }
   }

@@ -3,6 +3,15 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .page-header {
+  @include min-desktop {
+    padding-top: 2em;
+
+    h1 {
+      order: -1;
+      margin-bottom: 30px;
+      font-size: rem(35);
+    }
+  }
 
   $block-name:                &; // #{$block-name}__element
 
@@ -15,4 +24,9 @@
     letter-spacing: 1px;
     text-align: center;
   }
+}
+
+.page-header__inner {
+  display: flex;
+  flex-direction: column;
 }
