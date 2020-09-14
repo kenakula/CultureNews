@@ -1,0 +1,11 @@
+@mixin retina($url) {
+  @media (min-resolution: $retina) {
+    background-image: url($url);
+  }
+}
+
+@mixin retina-plus($url) {
+  @media (min-resolution: $retina-plus) {
+    background-image: url($url);
+  }
+}
