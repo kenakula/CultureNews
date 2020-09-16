@@ -33,7 +33,7 @@
 }
 
 @mixin transition {
-  transition: all $transition-time $trans-curve;
+  transition: all $transition-time $transition-animation;
 }
 
 @mixin full-width-vw {

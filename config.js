@@ -33,6 +33,8 @@ let config = {
     'source/fonts/raleway-thin.woff': 'fonts/',
     'source/fonts/raleway-thin-light.woff2': 'fonts/',
     'source/fonts/raleway-thin-light.woff': 'fonts/',
+    'source/fonts/proximanova-regular.woff2': 'fonts/',
+    'source/fonts/proximanova-regular.woff': 'fonts/',
     'source/favicon/*.{png,ico,svg,xml,webmanifest}': 'img/favicon',
     // 'node_modules/somePackage/images/*.{png,svg,jpg,jpeg}': 'img/',
   },

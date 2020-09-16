@@ -1,0 +1,44 @@
+//- Все примеси в этом файле должны начинаться c имени блока (overviews)
+
+mixin overviews(text, mods)
+  include overviews.data.pug
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +overviews('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' overviews--' + modsList[i].trim();
+      }
+    }
+
+  section.overviews(class=allMods)&attributes(attributes)
+    .overviews__inner
+      h2 Обзоры
+      ul.overviews__list
+        each item in overviews
+          +overviewsItem(item)
+      +pagination()
+        +pagination-item('1', '/', true)
+        +pagination-item('2', '/')
+        +pagination-item('3', '/')
+        +pagination-item('...')
+        +pagination-item('11', '/')
+
+
+mixin overviewsItem(item)
+  li(class='overviews__item')
+    .overviews__img-container
+      a(class='overviews__img-link', href= item.url)
+        img(src= item.src, alt= item.title, width='288', height='203')
+    .overviews__content
+      a(href= item.url)
+        h3= item.title
+      p= item.text

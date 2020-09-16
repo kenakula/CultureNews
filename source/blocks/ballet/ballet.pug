@@ -1,0 +1,24 @@
+//- Все примеси в этом файле должны начинаться c имени блока (ballet)
+
+mixin ballet()
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +ballet('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' ballet--' + modsList[i].trim();
+      }
+    }
+
+  .ballet(class=allMods)&attributes(attributes)
+    .ballet__inner
+      h2 Ох, уж этот балет
+      a(href='/') Смотреть

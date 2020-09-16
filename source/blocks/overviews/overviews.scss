@@ -1,0 +1,97 @@
+// В этом файле должны быть стили для БЭМ-блока overviews, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.overviews {
+
+  $block-name:                &; // #{$block-name}__element
+
+  margin-bottom: 30px;
+
+  h2 {
+    margin: 0;
+    margin-bottom: 15px;
+    font-size: rem(17);
+    text-transform: uppercase;
+  }
+}
+
+.overviews__inner {
+  display: flex;
+  flex-direction: column;
+}
+
+.overviews__list {
+  @include list-reset;
+
+  margin-bottom: 20px;
+}
+
+.overviews__item {
+  margin-bottom: 30px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &:hover {
+    .overviews__img-container::before {
+      display: block;
+    }
+
+    .overviews__content a {
+      color: $color-orange;
+    }
+  }
+}
+
+.overviews__img-container {
+  position: relative;
+  display: flex;
+  margin-bottom: 20px;
+  height: 203px;
+
+  &::before {
+    @include pseudo;
+
+    top: 9px;
+    right: 9px;
+    display: none;
+    width: 14px;
+    height: 17px;
+    background-image: url("../img/bookmark.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+
+  a {
+    flex-grow: 1;
+  }
+
+  img {
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.overviews__content {
+  h3 {
+    margin: 0;
+    margin-bottom: 10px;
+    font-family: $font-title-black;
+    font-size: rem(23);
+  }
+
+  p {
+    margin: 0;
+    font-size: rem(14);
+  }
+
+  a {
+    color: $black;
+    text-decoration: none;
+  }
+}

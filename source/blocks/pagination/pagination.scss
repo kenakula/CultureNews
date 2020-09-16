@@ -1,0 +1,65 @@
+// В этом файле должны быть стили для БЭМ-блока pagination, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pagination__button {
+  @include button-reset;
+
+  position: relative;
+  width: 30px;
+  height: 35px;
+  // border: 1px solid black;
+  font-size: 0;
+  cursor: pointer;
+
+  &::before {
+    @include triangle(left, 15px, 15px, rgba($color: $black, $alpha: 0.3));
+    @include transition;
+
+    position: absolute;
+    top: 3px;
+  }
+
+  &:hover::before {
+    @include triangle(left, 15px, 15px, rgba($color: $black, $alpha: 0.5));
+  }
+
+  &--next::before {
+    right: 0;
+    transform: rotate(180deg);
+  }
+}
+
+.pagination__list {
+  @include list-reset;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.pagination__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 39px;
+  height: 39px;
+  font-family: $font-alt-proxima;
+  font-size: 18px;
+  text-decoration: none;
+
+  &--active {
+    border: 1px solid $color-orange;
+    color: $color-orange;
+  }
+
+  &:not(span):hover {
+    border: 1px solid rgba($color: $color-orange, $alpha: 0.5);
+  }
+}

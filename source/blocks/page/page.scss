@@ -76,6 +76,15 @@
   font-style: normal;
   font-display: swap;
 }
+
+@font-face {
+  font-family: 'Proxima Regular';
+  src: url('../fonts/proximanova-regular.woff2') format('woff2'),
+       url('../fonts/proximanova-regular.woff2') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 /* stylelint-enable */
 
 html {
@@ -106,6 +115,11 @@ html {
 
   &__footer-wrapper {
     flex-shrink: 0;
+  }
+
+  &__wrapper {
+    margin: 0 auto;
+    width: 95%;
   }
 }
 
@@ -147,7 +161,6 @@ label,
 select,
 textarea {
   touch-action: manipulation; // Стилевая коррекция 300ms задержки (для поддерживающих браузеров)
-  margin: 0;                  // Убираем margin в Firefox и Safari
 }
 
 button,
@@ -204,22 +217,11 @@ img {
   height: auto;
 }
 
-ul[class],
-ol[class] {
-  padding: 0;
-  list-style: none;
-}
-
 a {
   color: $link-color;
   background-color: transparent;
   transition: color 0.3s;
   text-decoration-skip-ink: auto;
-
-  &:hover,
-  &:focus {
-    color: $link-color--hover;
-  }
 }
 
 hr {
@@ -230,19 +232,17 @@ hr {
   border-top: 1px solid $border-color;
 }
 
-body,
-h1,
-h2,
-h3,
-h4,
-p,
-ul[class],
-ol[class],
-li,
-figure,
-figcaption,
-blockquote,
-dl,
-dd {
-  margin: 0;
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }

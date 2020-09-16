@@ -1,0 +1,36 @@
+//- Все примеси в этом файле должны начинаться c имени блока (articles)
+
+mixin articles(text, mods)
+  include articles.data.pug
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +articles('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' articles--' + modsList[i].trim();
+      }
+    }
+
+  .articles(class=allMods)&attributes(attributes)
+    .articles__inner
+      h2.visually-hidden Статьи
+      ul.articles__list
+        each item in articles
+          +articles-item(item)
+
+
+mixin articles-item(item)
+  -
+    const itemClass = item.isDark === 'true' ? 'articles__item articles__item--dark' : 'articles__item';
+    let itemStyle = `background-image: url("${item.img}")`;
+  li(class= itemClass, style= itemStyle)
+    h3= item.title
+    a(href= item.url) Смотреть

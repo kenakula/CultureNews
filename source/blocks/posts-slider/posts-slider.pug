@@ -1,0 +1,35 @@
+//- Все примеси в этом файле должны начинаться c имени блока (posts-slider)
+
+mixin posts-slider(text, mods)
+  include posts-slider.data.pug
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +posts-slider('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' posts-slider--' + modsList[i].trim();
+      }
+    }
+
+  .posts-slider(class=allMods)&attributes(attributes)
+    .posts-slider__inner
+      ul.posts-slider__list
+        each item in posts
+          +post-slider-item(item)
+      .posts-slider__bullets
+
+mixin post-slider-item(item)
+  -
+    let itemBgImage = `background-image: url("${item.img}")`;
+  li.posts-slider__item(style= itemBgImage)
+    .posts-slider__overlay
+      h3= item.title
+      a(href= item.url) Смотреть

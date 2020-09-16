@@ -8,6 +8,7 @@ mixin news(text, mods)
   //- Вызов:
         +news('Текст', 'some-mod')
 
+  include news.data.pug
   -
     // список модификаторов
     var allMods = '';
@@ -18,6 +19,31 @@ mixin news(text, mods)
       }
     }
 
-  .news(class=allMods)&attributes(attributes)
+    const mainNews = news.filter((item) => { return item.isMain === 'true' });
+    const restNews = news.filter((item) => { return item.isMain === 'false' });
+
+  section.news(class=allMods)&attributes(attributes)
+    h2 Новости
     .news__inner
-      block
+      ul.news__main-list
+        each item in mainNews
+          +newsItem(item)
+      ul.news__list
+        each item in restNews
+          +newsItem(item)
+
+mixin newsItem(item)
+  -
+    let thisItemClass = 'news__item';
+    if (item.isMain === 'true') {
+      thisItemClass += ' news__item--main';
+    }
+
+  li(class= thisItemClass)
+    .news__img-container
+      a(class='news__img-link', href= item.url)
+        img(src= item.src, alt= item.title, width='127', height='91')
+    .news__content
+      a(href= item.url)
+        h3= item.title
+      p= item.text

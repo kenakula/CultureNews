@@ -1,0 +1,80 @@
+// В этом файле должны быть стили для БЭМ-блока articles, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+.articles {
+  padding: 20px 0;
+}
+
+.articles__list {
+  @include list-reset;
+}
+
+.articles__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  min-height: 310px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: $black;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  h3 {
+    margin: 0;
+    width: 70%;
+    font-family: $font-title-black;
+    font-size: rem(20);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+  }
+
+  a {
+    position: relative;
+    display: block;
+    padding-left: 30px;
+    width: 170px;
+    height: 47px;
+    font-family: $font-main-semibold;
+    font-size: rem(12);
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 47px;
+    color: $white;
+    background-color: $color-orange;
+
+    &:hover {
+      opacity: $opacity;
+    }
+
+    &::before {
+      @include pseudo;
+
+      top: 14px;
+      right: 30px;
+      width: 18px;
+      height: 18px;
+      background-image: url("../img/arrow-forward.svg");
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.articles__item--dark {
+  color: $white;
+
+  a {
+    border: 1px solid $white;
+    background-color: rgba($color: $black, $alpha: 0.4);
+  }
+}

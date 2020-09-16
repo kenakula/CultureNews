@@ -1,0 +1,59 @@
+//- Все примеси в этом файле должны начинаться c имени блока (pagination)
+
+mixin pagination(mods)
+
+  //- Принимает:
+  //-   mods  {string} - список модификаторов
+  //- Вызов:
+        +pagination()
+          +pagination-item('1', '/1')
+          +pagination-item('...')
+          +pagination-item('4', '/4')
+          +pagination-item('5', '/5', true)
+          +pagination-item('6', '/6')
+          +pagination-item('...')
+          +pagination-item('999', '/999')
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' pagination--' + modsList[i].trim();
+      }
+    }
+
+  nav.pagination(class=allMods, aria-label='навигация по обзорам')&attributes(attributes)
+    button.pagination__button.pagination__button--prev(type='button') Назад
+    ul.pagination__list
+      block
+    button.pagination__button.pagination__button--next(type='button') Вперед
+
+
+
+mixin pagination-item(text, href, active, mods)
+
+  //- Принимает:
+  //-   text   {string} - содержимое пункта
+  //-   href   {string} - ссылка этого пункта (если пустая, то это не ссылка, а span)
+  //-   active {bool}   - флаг «это активный пункт»
+  //-   mods   {string} - список модификаторов
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' pagination__link--' + modsList[i].trim();
+      }
+    }
+    if(typeof(active) !== 'undefined' && active) {
+      allMods = allMods + ' pagination__link--active';
+    }
+
+  if(typeof(href) !== 'undefined' && href)
+    li.pagination__item
+      a.pagination__link(class=allMods, href=href)&attributes(attributes)!= text
+  else
+    li.pagination__item
+      span.pagination__link(class=allMods)&attributes(attributes)!= text
