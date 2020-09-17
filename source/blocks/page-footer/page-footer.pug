@@ -1,0 +1,33 @@
+//- Все примеси в этом файле должны начинаться c имени блока (page-footer)
+
+mixin page-footer()
+  include ../main-nav/main-nav.data.pug
+
+  //- Принимает:
+  //-   text    {string} - текст
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +page-footer('Текст', 'some-mod')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' page-footer--' + modsList[i].trim();
+      }
+    }
+
+  footer.page-footer(class=allMods)&attributes(attributes)
+    .page-footer__inner
+      nav.page-footer__nav
+        ul.page-footer__list
+          each item in mainMenu
+            +page-footer__item(item)
+      .page-footer__copyrights
+        p © 2018 Новости культуры. Все права защищены.
+
+mixin page-footer__item(item)
+  li.page-footer__item
+    a(href= item.url)= item.name
