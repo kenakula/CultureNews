@@ -10,8 +10,20 @@
   }
 }
 
+@mixin min-mobile {
+  @media (min-width: $screen-mobile) {
+    @content;
+  }
+}
+
 @mixin min-tablet {
   @media (min-width: $screen-tablet) {
+    @content;
+  }
+}
+
+@mixin min-predesktop {
+  @media (min-width: $screen-predesktop) {
     @content;
   }
 }

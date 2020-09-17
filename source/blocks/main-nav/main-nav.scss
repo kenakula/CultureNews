@@ -18,7 +18,7 @@
     list-style: none;
 
     // мобильный вид списка
-    @media (max-width: ($menu-desktop-width - 1)) {
+    @media (max-width: ($menu-desktop-breakpoint - 1)) {
 
       // открытие/закрытие меню только в случае работающего JS
 
@@ -43,7 +43,7 @@
     }
 
     // настольный вид списка
-    @media (min-width: $menu-desktop-width) {
+    @media (min-width: $menu-desktop-breakpoint) {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -57,8 +57,12 @@
       }
 
       .main-nav__item {
+        @include min-desktop {
+          margin-right: 20px;
+        }
+
         margin-bottom: 0;
-        margin-right: 20px;
+        margin-right: 0;
 
         &:last-child {
           margin-right: 0;
@@ -115,7 +119,7 @@
     &--lvl-2 {
       min-width: 200px;
 
-      @media (max-width: ($menu-desktop-width - 1)) {
+      @media (max-width: ($menu-desktop-breakpoint - 1)) {
         padding-left: 2em;
       }
     }
@@ -123,7 +127,7 @@
     &--lvl-3 {
       min-width: 200px;
 
-      @media (max-width: ($menu-desktop-width - 1)) {
+      @media (max-width: ($menu-desktop-breakpoint - 1)) {
         padding-left: 3em;
       }
     }
@@ -133,7 +137,7 @@
 
     &--lvl-2 {
 
-      @media (min-width: $menu-desktop-width) {
+      @media (min-width: $menu-desktop-breakpoint) {
         position: absolute;
         z-index: 1;
         top: 100%;
@@ -156,7 +160,7 @@
 
     &--lvl-3 {
 
-      @media (min-width: $menu-desktop-width) {
+      @media (min-width: $menu-desktop-breakpoint) {
         position: absolute;
         z-index: 1;
         top: 0;
@@ -184,7 +188,7 @@
     display: inline-block;
     border: none;
 
-    @media (min-width: $menu-desktop-width) {
+    @media (min-width: $menu-desktop-breakpoint) {
       display: none;
     }
 

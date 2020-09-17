@@ -6,6 +6,10 @@
   margin-bottom: 30px;
 }
 
+.posts-slider__inner {
+  position: relative;
+}
+
 .posts-slider__list {
   @include list-reset;
 }
@@ -95,7 +99,50 @@
   background: rgba($color: $black, $alpha: 0.5)
 }
 
+.posts-slider__button {
+  @include button-reset;
+  @include min-desktop {
+    display: flex;
+  }
+
+  position: absolute;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  top: 46px;
+  width: 44px;
+  height: 44px;
+  background-color: $white;
+  box-shadow: $shadow;
+  z-index: $z-index-modal;
+  cursor: pointer;
+
+  &::before {
+    @include triangle(left, 9px, 9px, gray);
+  }
+
+  &--prev {
+    left: -22px;
+  }
+
+  &--next {
+    right: -22px;
+
+    &::before {
+      transform: rotate(180deg);
+    }
+  }
+
+  &:hover::before {
+    opacity: $opacity;
+  }
+}
+
 .posts-slider__bullets {
+  @include min-desktop {
+    display: none;
+  }
+
   padding: 10px 0;
 
   ul {

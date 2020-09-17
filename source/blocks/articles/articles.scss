@@ -2,7 +2,18 @@
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 .articles {
+  @include min-desktop {
+    padding: 0;
+  }
+
+  display: flex;
   padding: 20px 0;
+  width: 100%;
+}
+
+.articles__inner {
+  display: flex;
+  width: 100%;
 }
 
 .articles__list {
@@ -10,6 +21,11 @@
   @include min-tablet {
     flex-direction: row;
     justify-content: center;
+  }
+  @include min-desktop {
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
   }
 
   display: flex;
@@ -26,6 +42,11 @@
     &:nth-child(2n) {
       margin-right: 0;
     }
+  }
+  @include min-desktop {
+    flex-grow: 1;
+    margin-right: 0;
+    width: 100%;
   }
 
   display: flex;
@@ -46,6 +67,10 @@
   }
 
   h3 {
+    @include min-desktop {
+      width: 80%;
+      font-size: rem(30);
+    }
     margin: 0;
     width: 70%;
     font-family: $font-title-black;

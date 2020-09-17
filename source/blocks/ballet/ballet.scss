@@ -4,6 +4,9 @@
 
 .ballet {
   @include full-width-vw;
+  @include min-desktop {
+    margin: 0;
+  }
 
   display: flex;
   min-height: 176px;
@@ -11,8 +14,9 @@
 }
 
 .ballet__inner {
-  @include retina("../img/bottom-ballet-mobile@2x.jpg");
-  @include retina-plus("../img/bottom-ballet-mobile@3x.jpg");
+  @include min-predesktop {
+    background-image: url("../img/bottom-ballet-desktop.jpg");
+  }
 
   display: flex;
   flex-direction: column;
@@ -66,5 +70,19 @@
     &:hover {
       background-color: rgba($color: $black, $alpha: 0.3);
     }
+  }
+}
+
+@include min-mobile {
+  .ballet__inner {
+    @include retina("../img/bottom-ballet-mobile@2x.jpg");
+    @include retina-plus("../img/bottom-ballet-mobile@3x.jpg");
+  }
+}
+
+@include min-predesktop {
+  .ballet__inner {
+    @include retina("../img/bottom-ballet-desktop@2x.jpg");
+    @include retina-plus("../img/bottom-ballet-desktop@3x.jpg");
   }
 }

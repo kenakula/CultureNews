@@ -16,10 +16,13 @@
 }
 
 .slick-list {
+  @include min-tablet {
+    margin: 0 -10px;
+  }
+
   position: relative;
   overflow: hidden;
   display: block;
-  margin: 0 -10px;
   padding: 0;
 
   &:focus {
@@ -65,8 +68,11 @@
 }
 
 .slick-slide {
+  @include min-tablet {
+    margin: 0 10px;
+  }
+
   float: left;
-  margin: 0 10px;
   height: 100%;
   min-height: 1px;
 

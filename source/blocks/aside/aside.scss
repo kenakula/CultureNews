@@ -3,6 +3,13 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .aside {
+  @include min-desktop {
+    display: flex;
+    order: -1;
+    margin: 0;
+    width: 30%;
+  }
+
   margin: 0 auto;
   width: 95%;
 }

@@ -21,10 +21,13 @@ mixin posts-slider(text, mods)
 
   .posts-slider(class=allMods)&attributes(attributes)
     .posts-slider__inner
+      button.posts-slider__button.posts-slider__button--prev(type='button')
       ul.posts-slider__list
         each item in posts
           +post-slider-item(item)
       .posts-slider__bullets
+      button.posts-slider__button.posts-slider__button--next(type='button')
+
 
 mixin post-slider-item(item)
   -
