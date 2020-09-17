@@ -1,24 +1,9 @@
 //- Все примеси в этом файле должны начинаться c имени блока (news)
 
-mixin news(text, mods)
-
-  //- Принимает:
-  //-   text    {string} - текст
-  //-   mods    {string} - список модификаторов
-  //- Вызов:
-        +news('Текст', 'some-mod')
+mixin news()
 
   include news.data.pug
   -
-    // список модификаторов
-    var allMods = '';
-    if(typeof(mods) !== 'undefined' && mods) {
-      var modsList = mods.split(',');
-      for (var i = 0; i < modsList.length; i++) {
-        allMods = allMods + ' news--' + modsList[i].trim();
-      }
-    }
-
     const mainNews = news.filter((item) => { return item.isMain === 'true' });
     const restNews = news.filter((item) => { return item.isMain === 'false' });
 

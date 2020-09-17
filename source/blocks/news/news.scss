@@ -3,6 +3,9 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .news {
+  @include min-tablet {
+    margin-bottom: 40px;
+  }
 
   $block-name:                &; // #{$block-name}__element
   margin-bottom: 20px;
@@ -16,12 +19,23 @@
 }
 
 .news__inner {
+  @include min-tablet {
+    flex-direction: row;
+
+    & > ul {
+      width: 50%;
+    }
+  }
+
   display: flex;
   flex-direction: column;
 }
 
 .news__main-list {
   @include list-reset;
+  @include min-tablet {
+    margin-right: 20px;
+  }
 
   display: flex;
   flex-direction: column;
@@ -29,6 +43,20 @@
 
 .news__list {
   @include list-reset;
+  @include min-tablet {
+    justify-content: space-between;
+
+    .news__content {
+      width: 100%;
+    }
+
+    .news__img-container {
+      width: 55%;
+    }
+  }
+
+  display: flex;
+  flex-direction: column;
 
   .news__content {
     width: 50.6%;
@@ -40,6 +68,10 @@
 }
 
 .news__item {
+  @include min-tablet {
+    margin-bottom: 0;
+  }
+
   display: flex;
   margin-bottom: 31px;
 

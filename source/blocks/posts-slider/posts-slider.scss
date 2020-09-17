@@ -18,6 +18,35 @@
   background-position: center;
   cursor: pointer;
 
+  &--slide01 {
+    @include retina("../img/slider-img-1@2x.jpg");
+    @include retina-plus("../img/slider-img-1@3x.jpg");
+
+    background-image: url("../img/slider-img-1.jpg");
+  }
+
+  &--slide02 {
+    @include retina("../img/slider-img-2@2x.jpg");
+    @include retina-plus("../img/slider-img-2@3x.jpg");
+
+    background-image: url("../img/slider-img-2.jpg");
+  }
+
+  &--slide03 {
+    @include retina("../img/slider-img-3@2x.jpg");
+    @include retina-plus("../img/slider-img-3@3x.jpg");
+
+    background-image: url("../img/slider-img-3.jpg");
+  }
+
+  &--slide04 {
+    @include retina("../img/slider-img-4@2x.jpg");
+    @include retina-plus("../img/slider-img-4@3x.jpg");
+
+    background-image: url("../img/slider-img-4.jpg");
+  }
+
+
   &:hover {
     .posts-slider__overlay {
       display: flex;

@@ -23,11 +23,20 @@
 
 .overviews__list {
   @include list-reset;
+  @include min-tablet {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
 
   margin-bottom: 20px;
 }
 
 .overviews__item {
+  @include min-tablet {
+    width: 45%;
+  }
+
   margin-bottom: 30px;
 
   &:last-child {

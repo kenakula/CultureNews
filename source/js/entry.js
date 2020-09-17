@@ -10,7 +10,6 @@
 require('../blocks/burger/burger.js');
 require('../blocks/hero/hero.js');
 require('../blocks/main-nav/main-nav.js');
-require('../blocks/overviews/overviews.js');
 require('../blocks/posts-slider/posts-slider.js');
 require('./script.js');
 
