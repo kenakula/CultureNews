@@ -23,9 +23,9 @@
     display: flex;
   }
 
+  display: none;
   position: absolute;
   bottom: 45%;
-  display: none;
   justify-content: center;
   width: 100%;
   height: 42px;
@@ -34,10 +34,10 @@
 
   & > div {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 5px 10px;
+    justify-content: space-between;
     width: 40%;
+    padding: 5px 10px;
     border-right: 1px solid $white;
 
     &:last-child {
@@ -55,8 +55,8 @@
   &::before {
     @include pseudo;
 
-    right: -80px;
     top: 9px;
+    right: -80px;
     width: 64px;
     height: 1px;
     background-color: $white;
@@ -79,13 +79,14 @@
   outline: none;
   cursor: pointer;
 
+  &:hover {
+    background-color: rgba($color: $white, $alpha: 0.1);
+  }
+
   &--right {
     transform: rotate(180deg);
   }
 
-  &:hover {
-    background-color: rgba($color: $white, $alpha: 0.1);
-  }
 }
 
 .hero__item {
@@ -99,12 +100,12 @@
     font-size: rem(72);
   }
 
-  position: relative;
   display: flex !important; // для переназначения инлайн-стилей плагина слайдера
+  position: relative;
   flex-direction: column;
   align-items: center;
-  padding: 80px 20px 55px;
   min-height: 405px;
+  padding: 80px 20px 55px;
   color: $white;
   background-color: $hero-bg;
   background-image: url("../img/hero-index-mobile.jpg");
@@ -114,9 +115,9 @@
 
   span {
     position: absolute;
+    display: block;
     top: 25px;
     left: calc(50% - 50px);
-    display: block;
     width: 100px;
     font-size: rem(16);
     text-align: center;
@@ -152,6 +153,7 @@
 }
 
 @media (min-resolution: $retina) {
+
   .hero__item {
     @include min-mobile {
       background-image: url("../img/hero-index-mobile@2x.jpg");
@@ -163,6 +165,7 @@
 }
 
 @media (min-resolution: $retina-plus) {
+
   .hero__item {
     @include min-mobile {
       background-image: url("../img/hero-index-mobile@3x.jpg");
@@ -177,13 +180,13 @@
 .hero__dots {
   @include list-reset;
 
+  display: flex;
   position: absolute;
   bottom: 20px;
   left: 0;
-  display: flex;
   justify-content: center;
-  width: 100%;
   z-index: 1001;
+  width: 100%;
 
   li {
     margin-right: 15px;

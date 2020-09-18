@@ -7,9 +7,9 @@
   "keywords": [],
   "scripts": {
     "test": "npm run test:pug && npm run test:style && npm run test:js",
-    "test:pug": "glob-exec \"src/**/*.pug\" -- \"pug-lint {{files.join(' ')}}\"",
-    "test:style": "stylelint \"src/**/*.scss\" --syntax=scss",
-    "test:js": "eslint src/blocks/**/*.js src/js/**/*.js",
+    "test:pug": "glob-exec \"source/**/*.pug\" -- \"pug-lint {{files.join(' ')}}\"",
+    "test:style": "stylelint \"source/**/*.scss\" --syntax=scss",
+    "test:js": "eslint source/blocks/**/*.js src/js/**/*.js",
     "start": "gulp",
     "build": "gulp build"
   },
@@ -22,6 +22,7 @@
     "@babel/preset-env": "^7.11.5",
     "@htmlacademy/editorconfig-cli": "^1.0.0",
     "autoprefixer": "^9.8.6",
+    "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "browser-sync": "^2.26.12",
     "cpy": "^8.1.1",

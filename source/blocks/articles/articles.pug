@@ -30,7 +30,9 @@ mixin articles(text, mods)
 mixin articles-item(item)
   -
     const itemClass = item.isDark === 'true' ? 'articles__item articles__item--dark' : 'articles__item';
-    let itemStyle = `background-image: url("${item.img}")`;
+    let itemStyle = `background-image: url("${item.img[2]}")`;
+    // TODO ретинизация
+
   li(class= itemClass, style= itemStyle)
     h3= item.title
     a(href= item.url) Смотреть

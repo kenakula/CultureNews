@@ -34,10 +34,17 @@ mixin overviews(text, mods)
 
 
 mixin overviewsItem(item)
+  -
+    let defaultImgUrl = item.src[0];
+    let retinaImgUrl = item.src[1];
+    let retinaPlusImgUrl = item.src[2];
+
+    let imgSrcset = retinaImgUrl + ' 2x, ' + retinaPlusImgUrl + ' 3x';
+
   li(class='overviews__item')
     .overviews__img-container
       a(class='overviews__img-link', href= item.url)
-        img(src= item.src, alt= item.title, width='288', height='203')
+        img(src= defaultImgUrl, srcset= imgSrcset, alt= item.title, width='288', height='203')
     .overviews__content
       a(href= item.url)
         h3= item.title

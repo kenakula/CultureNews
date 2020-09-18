@@ -5,6 +5,7 @@
 .page-header {
   @include min-predesktop {
     padding-top: 2em;
+    padding-bottom: 1em;
 
     h1 {
       order: -1;

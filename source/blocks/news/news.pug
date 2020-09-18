@@ -25,10 +25,18 @@ mixin newsItem(item)
     }
 
   li(class= thisItemClass)
+    -
+      let defaultImgUrl = item.img.src[0];
+      let retinaImgUrl = item.img.src[1];
+      let retinaPlusImgUrl = item.img.src[2];
+
+      let imgSrcset = retinaImgUrl + ' 2x, ' + retinaPlusImgUrl + ' 3x';
+
     .news__img-container
       a(class='news__img-link', href= item.url)
-        img(src= item.src, alt= item.title, width='127', height='91')
+        img(src= defaultImgUrl, srcset= imgSrcset, alt= item.title, width='127', height='91')
     .news__content
       a(href= item.url)
         h3= item.title
       p= item.text
+        span

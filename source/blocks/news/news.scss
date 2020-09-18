@@ -49,10 +49,6 @@
     .news__content {
       width: 100%;
     }
-
-    .news__img-container {
-      width: 55%;
-    }
   }
 
   display: flex;
@@ -139,6 +135,13 @@
 }
 
 .news__img-container {
+  @include min-tablet {
+    width: 55%;
+  }
+  @include min-predesktop {
+    width: auto;
+    flex-shrink: 0;
+  }
   position: relative;
 
   &::before {
