@@ -24,41 +24,41 @@
   <meta name="description" content="Новости из мира искусств и культуры">
   <link rel="stylesheet" href="css/style.css">
   <script>
-// Браузер и ОС
-document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
-function cth(c){document.documentElement.classList.add(c)}
-'ontouchstart' in window?cth('touch'):cth('no-touch');
-if(typeof InstallTrigger!=='undefined')cth('firefox');
-if(/constructor/i.test(window.HTMLElement)||(function(p){return p.toString()==="[object SafariRemoteNotification]"})(!window['safari']||(typeof safari!=='undefined'&&safari.pushNotification)))cth('safari');
-if(/*@cc_on!@*/false||!!document.documentMode)cth('ie');
-if(!(/*@cc_on!@*/false||!!document.documentMode)&&!!window.StyleMedia)cth('edge');
-if(!!window.chrome&&(!!window.chrome.webstore||!!window.chrome.runtime))cth('chrome');
-if(~navigator.appVersion.indexOf("Win"))cth('windows');
-if(~navigator.appVersion.indexOf("Mac"))cth('osx');
-if(~['iPad','iPhone','iPod'].indexOf(navigator.platform))cth('ios');
-if(~navigator.appVersion.indexOf("Linux"))cth('linux');
+    // Браузер и ОС
+    document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+    function cth(c) { document.documentElement.classList.add(c) }
+    'ontouchstart' in window ? cth('touch') : cth('no-touch');
+    if (typeof InstallTrigger !== 'undefined') cth('firefox');
+    if (/constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]" })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification))) cth('safari');
+    if (/*@cc_on!@*/false || !!document.documentMode) cth('ie');
+    if (!(/*@cc_on!@*/false || !!document.documentMode) && !!window.StyleMedia) cth('edge');
+    if (!!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime)) cth('chrome');
+    if (~navigator.appVersion.indexOf("Win")) cth('windows');
+    if (~navigator.appVersion.indexOf("Mac")) cth('osx');
+    if (~['iPad', 'iPhone', 'iPod'].indexOf(navigator.platform)) cth('ios');
+    if (~navigator.appVersion.indexOf("Linux")) cth('linux');
 
-// Добавление 1vh (использование: height: 100vh; height: calc(var(--vh, 1vh) * 100);) для фикса 100vh на мобилках
-let vh = window.innerHeight * 0.01;
-document.documentElement.style.setProperty('--vh', `${vh}px`);
-window.addEventListener('resize', () => {
-  let vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
-});
+    // Добавление 1vh (использование: height: 100vh; height: calc(var(--vh, 1vh) * 100);) для фикса 100vh на мобилках
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    window.addEventListener('resize', () => {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    });
 
-// Добавление css-scroll-size для борьбы с проблемами скроллируемых блоков
-document.addEventListener("DOMContentLoaded", () => {
-  const outer = document.createElement('div');
-  const inner = document.createElement('div');
-  outer.style.overflow = 'scroll';
-  outer.classList.add('scrollbar');
-  document.body.appendChild(outer);
-  outer.appendChild(inner);
-  const scrollbarSize = outer.offsetWidth - inner.offsetWidth;
-  document.body.removeChild(outer);
-  document.documentElement.style.setProperty('--css-scroll-size', `${scrollbarSize}px`);
-});
-</script>
+    // Добавление css-scroll-size для борьбы с проблемами скроллируемых блоков
+    document.addEventListener("DOMContentLoaded", () => {
+      const outer = document.createElement('div');
+      const inner = document.createElement('div');
+      outer.style.overflow = 'scroll';
+      outer.classList.add('scrollbar');
+      document.body.appendChild(outer);
+      outer.appendChild(inner);
+      const scrollbarSize = outer.offsetWidth - inner.offsetWidth;
+      document.body.removeChild(outer);
+      document.documentElement.style.setProperty('--css-scroll-size', `${scrollbarSize}px`);
+    });
+  </script>
 </head>
 
 <body><noscript>У вас отключен JavaScript. Это пугает.</noscript>
@@ -66,7 +66,8 @@ document.addEventListener("DOMContentLoaded", () => {
     <div class="page__content">
       <header class="page-header">
         <div class="page-header__inner">
-          <nav class="main-nav" id="nav"><button class="burger main-nav__toggler" aria-label="Показать главное меню" data-target-id="nav" data-target-class-toggle="main-nav--open"><span>Показать главное меню</span></button>
+          <nav class="main-nav" id="nav"><button class="burger main-nav__toggler" aria-label="Показать главное меню"
+              data-target-id="nav" data-target-class-toggle="main-nav--open"><span>Показать главное меню</span></button>
             <ul class="main-nav__list">
               <li class="main-nav__item"><a class="main-nav__link" href="/">Новости</a></li>
               <li class="main-nav__item"><a class="main-nav__link" href="/">Обзоры</a></li>
@@ -88,28 +89,36 @@ document.addEventListener("DOMContentLoaded", () => {
             <ul class="hero__list">
               <li class="hero__item"><span>Новое</span>
                 <h2>Подводный отель</h2>
-                <p>Как известно, Дубай – город контрастов. Самые революционные и фантастические мечты архитекторов способен воплотить в жизнь этот мегаполис, построенный на нефти и за счет нефти</p>
+                <p>Как известно, Дубай – город контрастов. Самые революционные и фантастические мечты архитекторов
+                  способен воплотить в жизнь этот мегаполис, построенный на нефти и за счет нефти</p>
               </li>
               <li class="hero__item">
                 <h2>Воздушный некрополь</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem sunt eligendi qui suscipit quia, maiores id possimus odio ad consequuntur nesciunt quo obcaecati delectus ex assumenda.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem sunt eligendi qui suscipit quia, maiores
+                  id possimus odio ad consequuntur nesciunt quo obcaecati delectus ex assumenda.</p>
               </li>
               <li class="hero__item"><span>Новое</span>
                 <h2>Ветренный бордель</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo odit id ducimus saepe necessitatibus</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo odit id ducimus saepe necessitatibus
+                </p>
               </li>
               <li class="hero__item"><span>Новое</span>
                 <h2>Солнечный фалафель</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo odit id ducimus saepe necessitatibus praesentium natus voluptas accusantium perferendis consequatur esse laborum dolores</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo odit id ducimus saepe necessitatibus
+                  praesentium natus voluptas accusantium perferendis consequatur esse laborum dolores</p>
               </li>
               <li class="hero__item">
                 <h2>Лунная призма</h2>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo odit id ducimus saepe necessitatibus praesentium natus voluptas accusantium perferendis consequatur esse laborum</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo odit id ducimus saepe necessitatibus
+                  praesentium natus voluptas accusantium perferendis consequatur esse laborum</p>
               </li>
             </ul>
             <div class="hero__controls">
-              <div><span class="hero__controls-title hero__controls-title--left" role="presentation">Предыдущая</span><button class="hero__button hero__button--left" aria-label="Предыдущий слайд"></button></div>
-              <div><button class="hero__button hero__button--right" aria-label="Следующий слайд"></button><span class="hero__controls-title hero__controls-title--right" role="presentation">Следующая</span></div>
+              <div><span class="hero__controls-title hero__controls-title--left"
+                  role="presentation">Предыдущая</span><button class="hero__button hero__button--left"
+                  aria-label="Предыдущий слайд"></button></div>
+              <div><button class="hero__button hero__button--right" aria-label="Следующий слайд"></button><span
+                  class="hero__controls-title hero__controls-title--right" role="presentation">Следующая</span></div>
             </div>
           </div>
         </section>
@@ -120,17 +129,22 @@ document.addEventListener("DOMContentLoaded", () => {
               <div class="news__inner">
                 <ul class="news__main-list">
                   <li class="news__item news__item--main">
-                    <div class="news__img-container"><a class="news__img-link" href="/"><img src="../img/news-birds.jpg" srcset="../img/news-birds@2x.jpg 2x, ../img/news-birds@3x.jpg 3x" alt="Новости культуры России и всего мира" width="127" height="91" /></a></div>
+                    <div class="news__img-container"><a class="news__img-link" href="/"><img src="img/news-birds.jpg"
+                          srcset="img/news-birds@2x.jpg 2x, img/news-birds@3x.jpg 3x"
+                          alt="Новости культуры России и всего мира" width="127" height="91" /></a></div>
                     <div class="news__content"><a href="/">
                         <h3>Новости культуры России и всего мира</h3>
                       </a>
-                      <p>В минувшие выходные в Москве на фестивале «Оберег» вручили первую премию Russian World Music Awards<span></span></p>
+                      <p>В минувшие выходные в Москве на фестивале «Оберег» вручили первую премию Russian World Music
+                        Awards<span></span></p>
                     </div>
                   </li>
                 </ul>
                 <ul class="news__list">
                   <li class="news__item">
-                    <div class="news__img-container"><a class="news__img-link" href="/"><img src="../img/news-statue.jpg" srcset="../img/news-statue@2x.jpg 2x, ../img/news-statue@3x.jpg 3x" alt="Открытие нового памятника Евгению Леонову" width="127" height="91" /></a></div>
+                    <div class="news__img-container"><a class="news__img-link" href="/"><img src="img/news-statue.jpg"
+                          srcset="img/news-statue@2x.jpg 2x, img/news-statue@3x.jpg 3x"
+                          alt="Открытие нового памятника Евгению Леонову" width="127" height="91" /></a></div>
                     <div class="news__content"><a href="/">
                         <h3>Открытие нового памятника Евгению Леонову</h3>
                       </a>
@@ -138,7 +152,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                   </li>
                   <li class="news__item">
-                    <div class="news__img-container"><a class="news__img-link" href="/"><img src="../img/news-patric.jpg" srcset="../img/news-patric@2x.jpg 2x, ../img/news-patric@3x.jpg 3x" alt="День и ночь св. Патрика: встреча старых друзей" width="127" height="91" /></a></div>
+                    <div class="news__img-container"><a class="news__img-link" href="/"><img src="img/news-patric.jpg"
+                          srcset="img/news-patric@2x.jpg 2x, img/news-patric@3x.jpg 3x"
+                          alt="День и ночь св. Патрика: встреча старых друзей" width="127" height="91" /></a></div>
                     <div class="news__content"><a href="/">
                         <h3>День и ночь св. Патрика: встреча старых друзей</h3>
                       </a>
@@ -146,7 +162,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                   </li>
                   <li class="news__item">
-                    <div class="news__img-container"><a class="news__img-link" href="/"><img src="../img/news-writer.jpg" srcset="../img/news-writer@2x.jpg 2x, ../img/news-writer@3x.jpg 3x" alt="Беседы с писателями" width="127" height="91" /></a></div>
+                    <div class="news__img-container"><a class="news__img-link" href="/"><img src="img/news-writer.jpg"
+                          srcset="img/news-writer@2x.jpg 2x, img/news-writer@3x.jpg 3x" alt="Беседы с писателями"
+                          width="127" height="91" /></a></div>
                     <div class="news__content"><a href="/">
                         <h3>Беседы с писателями</h3>
                       </a>
@@ -161,41 +179,59 @@ document.addEventListener("DOMContentLoaded", () => {
                 <h2>Обзоры</h2>
                 <ul class="overviews__list">
                   <li class="overviews__item">
-                    <div class="overviews__img-container"><a class="overviews__img-link" href="/"><img src="../img/reviews-monparnas.jpg" srcset="../img/reviews-monparnas@2x.jpg 2x, ../img/reviews-monparnas@3x.jpg 3x" alt="«Шальные годы» Монпарнаса" width="288" height="203" /></a></div>
+                    <div class="overviews__img-container"><a class="overviews__img-link" href="/"><img
+                          src="img/reviews-monparnas.jpg"
+                          srcset="img/reviews-monparnas@2x.jpg 2x, img/reviews-monparnas@3x.jpg 3x"
+                          alt="«Шальные годы» Монпарнаса" width="288" height="203" /></a></div>
                     <div class="overviews__content"><a href="/">
                         <h3>«Шальные годы» Монпарнаса</h3>
                       </a>
-                      <p>В Музее изобразительных искусств имени Пушкина с 29 сентября по 29 ноября проходит выставка «Шальные годы Монпарнаса»</p>
+                      <p>В Музее изобразительных искусств имени Пушкина с 29 сентября по 29 ноября проходит выставка
+                        «Шальные годы Монпарнаса»</p>
                     </div>
                   </li>
                   <li class="overviews__item">
-                    <div class="overviews__img-container"><a class="overviews__img-link" href="/"><img src="../img/reviews-anatomy.jpg" srcset="../img/reviews-anatomy@2x.jpg 2x, ../img/reviews-anatomy@3x.jpg 3x" alt="Анатомия за 30 секунд" width="288" height="203" /></a></div>
+                    <div class="overviews__img-container"><a class="overviews__img-link" href="/"><img
+                          src="img/reviews-anatomy.jpg"
+                          srcset="img/reviews-anatomy@2x.jpg 2x, img/reviews-anatomy@3x.jpg 3x"
+                          alt="Анатомия за 30 секунд" width="288" height="203" /></a></div>
                     <div class="overviews__content"><a href="/">
                         <h3>Анатомия за 30 секунд</h3>
                       </a>
-                      <p>Сейчас, когда мир открыт нараспашку для человека и его познавательных изысканий, интерес к научно-популярной литературе заметно вырос</p>
+                      <p>Сейчас, когда мир открыт нараспашку для человека и его познавательных изысканий, интерес к
+                        научно-популярной литературе заметно вырос</p>
                     </div>
                   </li>
                   <li class="overviews__item">
-                    <div class="overviews__img-container"><a class="overviews__img-link" href="/"><img src="../img/reviews-ballet.jpg" srcset="../img/reviews-ballet@2x.jpg 2x, ../img/reviews-ballet@3x.jpg 3x" alt="Русские балетные сезоны" width="288" height="203" /></a></div>
+                    <div class="overviews__img-container"><a class="overviews__img-link" href="/"><img
+                          src="img/reviews-ballet.jpg"
+                          srcset="img/reviews-ballet@2x.jpg 2x, img/reviews-ballet@3x.jpg 3x"
+                          alt="Русские балетные сезоны" width="288" height="203" /></a></div>
                     <div class="overviews__content"><a href="/">
                         <h3>Русские балетные сезоны</h3>
                       </a>
-                      <p>В Новом Иерусалиме стартовал необычный культурно-развлекательный спектакль, который покажут в новом театре</p>
+                      <p>В Новом Иерусалиме стартовал необычный культурно-развлекательный спектакль, который покажут в
+                        новом театре</p>
                     </div>
                   </li>
                   <li class="overviews__item">
-                    <div class="overviews__img-container"><a class="overviews__img-link" href="/"><img src="../img/reviews-theatre.jpg" srcset="../img/reviews-theatre@2x.jpg 2x, ../img/reviews-theatre@3x.jpg 3x" alt="Сферические чудаки" width="288" height="203" /></a></div>
+                    <div class="overviews__img-container"><a class="overviews__img-link" href="/"><img
+                          src="img/reviews-theatre.jpg"
+                          srcset="img/reviews-theatre@2x.jpg 2x, img/reviews-theatre@3x.jpg 3x" alt="Сферические чудаки"
+                          width="288" height="203" /></a></div>
                     <div class="overviews__content"><a href="/">
                         <h3>Сферические чудаки</h3>
                       </a>
-                      <p>Корреспондентам «Культурного обозревателя» посчастливилось побывать в театре «Сфера» на премьере спектакля «Чудаки и зануды»</p>
+                      <p>Корреспондентам «Культурного обозревателя» посчастливилось побывать в театре «Сфера» на
+                        премьере спектакля «Чудаки и зануды»</p>
                     </div>
                   </li>
                 </ul>
-                <nav class="pagination" aria-label="навигация по обзорам"><button class="pagination__button pagination__button--prev" type="button">Назад</button>
+                <nav class="pagination" aria-label="навигация по обзорам"><button
+                    class="pagination__button pagination__button--prev" type="button">Назад</button>
                   <ul class="pagination__list">
-                    <li class="pagination__item"><a class="pagination__link  pagination__link--active" href="/">1</a></li>
+                    <li class="pagination__item"><a class="pagination__link  pagination__link--active" href="/">1</a>
+                    </li>
                     <li class="pagination__item"><a class="pagination__link" href="/">2</a></li>
                     <li class="pagination__item"><a class="pagination__link" href="/">3</a></li>
                     <li class="pagination__item"><span class="pagination__link">...</span></li>
@@ -212,7 +248,8 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
           <div class="page__wrapper page__wrapper--slider">
             <div class="posts-slider">
-              <div class="posts-slider__inner"><button class="posts-slider__button posts-slider__button--prev" type="button"></button>
+              <div class="posts-slider__inner"><button class="posts-slider__button posts-slider__button--prev"
+                  type="button"></button>
                 <ul class="posts-slider__list">
                   <li class="posts-slider__item posts-slider__item--slide01">
                     <div class="posts-slider__overlay">
@@ -255,7 +292,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                   </li>
                 </ul>
-                <div class="posts-slider__bullets"></div><button class="posts-slider__button posts-slider__button--next" type="button"></button>
+                <div class="posts-slider__bullets"></div><button class="posts-slider__button posts-slider__button--next"
+                  type="button"></button>
               </div>
             </div>
           </div>
@@ -264,13 +302,15 @@ document.addEventListener("DOMContentLoaded", () => {
               <div class="articles__inner">
                 <h2 class="visually-hidden">Статьи</h2>
                 <ul class="articles__list">
-                  <li class="articles__item" style="background-image: url(&quot;../img/article-baloons@3x.jpg&quot;)">
+                  <li class="articles__item" style="background-image: url(&quot;img/article-baloons@3x.jpg&quot;)">
                     <h3>Воздушные шары</h3><a href="/">Смотреть</a>
                   </li>
-                  <li class="articles__item articles__item--dark" style="background-image: url(&quot;../img/article-fotosession@3x.jpg&quot;)">
+                  <li class="articles__item articles__item--dark"
+                    style="background-image: url(&quot;img/article-fotosession@3x.jpg&quot;)">
                     <h3>Необычная фотосессия</h3><a href="/">Смотреть</a>
                   </li>
-                  <li class="articles__item articles__item--dark" style="background-image: url(&quot;../img/article-bird@3x.jpg&quot;)">
+                  <li class="articles__item articles__item--dark"
+                    style="background-image: url(&quot;img/article-bird@3x.jpg&quot;)">
                     <h3>Выставка птиц</h3><a href="/">Смотреть</a>
                   </li>
                 </ul>
