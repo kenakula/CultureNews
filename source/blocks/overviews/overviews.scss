@@ -45,7 +45,7 @@
 
   &:hover {
     .overviews__img-container::before {
-      display: block;
+      opacity: 1;
     }
 
     .overviews__content a {
@@ -63,15 +63,17 @@
   &::before {
     @include pseudo;
 
+    display: block;
     top: 9px;
     right: 9px;
-    display: none;
     width: 14px;
     height: 17px;
     background-image: url("../img/bookmark.svg");
     background-position: center;
     background-repeat: no-repeat;
     cursor: pointer;
+    opacity: 0;
+    transition: opacity $transition-deafault;
   }
 
   a {

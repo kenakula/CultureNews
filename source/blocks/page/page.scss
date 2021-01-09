@@ -159,6 +159,7 @@ body {
   color: $text-color;
   background-color: $body-bg;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

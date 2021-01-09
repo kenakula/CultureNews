@@ -96,6 +96,7 @@
     line-height: 47px;
     color: $white;
     background-color: $color-orange;
+    transition: opacity $transition-deafault;
 
     &:hover {
       opacity: $opacity;

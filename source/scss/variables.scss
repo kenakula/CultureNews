@@ -74,6 +74,7 @@ $border-radius:               3px;
 $opacity:                     0.7;
 $transition-time:             0.3s;
 $transition-animation:        ease-in;
+$transition-deafault:         $transition-time $transition-animation;
 $shadow:                      -2px 2px 10px 0 rgba(0, 0, 0, 0.3);
 
 $toggler-part-height:         3px;
@@ -85,3 +86,20 @@ $z-index-modal:               100;
 
 $retina:                      1.5dppx;
 $retina-plus:                 2.5dppx;
+
+@keyframes fadeInFromNone {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+
+  1% {
+    display: flex;
+    opacity: 0;
+  }
+
+  100% {
+    display: flex;
+    opacity: 1;
+  }
+}

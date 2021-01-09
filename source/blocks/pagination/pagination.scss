@@ -50,16 +50,18 @@
   align-items: center;
   width: 39px;
   height: 39px;
+  border: 1px solid transparent;
   font-family: $font-alt-proxima;
   font-size: 18px;
   text-decoration: none;
+  transition: border-color $transition-deafault;
 
   &--active {
-    border: 1px solid $color-orange;
+    border-color: $color-orange;
     color: $color-orange;
   }
 
   &:not(span):hover {
-    border: 1px solid rgba($color: $color-orange, $alpha: 0.5);
+    border-color: rgba($color: $color-orange, $alpha: 0.5);
   }
 }
